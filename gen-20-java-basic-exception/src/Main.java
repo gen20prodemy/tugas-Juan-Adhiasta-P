@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws CustomException{
         start();
+        //methodBaru();
     }
     public static void start() throws CustomException{
         try {
@@ -78,10 +79,10 @@ public class Main {
             int[] arr = convertToInt(input.split(" "));
             System.out.print("Masukkan indeks yang ingin dicek: ");
             int i = scan2.nextInt();
-            if(i <= arr.length || i > 0){
-                System.out.print(arr[i]);
+            if(i < 0 || i > arr.length){
+                throw new ArrayIndexOutOfBoundsException("Error, salah indeks");
             } else {
-                throw new ArrayIndexOutOfBoundsException("angka yang dimasukkan: "+i);
+                System.out.print(arr[i]);
             }
             //throw new ArrayIndexOutOfBoundsException("salah indeks");
            System.out.println();
@@ -131,4 +132,8 @@ public class Main {
         return newArray;
 
     }
+//    public static void methodBaru() throws NumberFormatException{
+//        int x = 1;
+//        Integer.parseInt("b");
+//    }
 }
