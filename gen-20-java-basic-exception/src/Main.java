@@ -48,7 +48,7 @@ public class Main {
 
             }
 
-        } catch (InputMismatchException e){
+        } catch (InputMismatchException | NullPointerException e){
             System.out.println("Mohon masukkan angka");
             System.out.println();
             start();
@@ -78,12 +78,14 @@ public class Main {
             int[] arr = convertToInt(input.split(" "));
             System.out.print("Masukkan indeks yang ingin dicek: ");
             int i = scan2.nextInt();
-            if(i == -1){
+            if(i <= arr.length || i > 0){
+                System.out.print(arr[i]);
+            } else {
                 throw new ArrayIndexOutOfBoundsException("angka yang dimasukkan: "+i);
             }
-            System.out.print(arr[i]);
-            System.out.println();
-            start();
+            //throw new ArrayIndexOutOfBoundsException("salah indeks");
+           System.out.println();
+           start();
         } catch (NumberFormatException e){
             System.out.println("Error, kembali ke menu");
             System.out.println();
