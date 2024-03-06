@@ -44,8 +44,9 @@ public class Main {
                     System.out.println();
                     start();
             }
-        } catch (InputMismatchException e){
+        } catch (InputMismatchException | IndexOutOfBoundsException | NullPointerException e){
             System.out.println("Error: "+e);
+            System.out.println("Mohon masukkan angka");
             System.out.println("Mohon masukkan angka");
             System.out.println();
             start();
