@@ -11,11 +11,11 @@ public class Product {
 //        this.productName = productName;
 //    }
 
-    public String getProductName(){
-        return productName;
-    }
-    public double getPrice(){
-        return getPrice();
+    //public String getProductName(){
+        //return productName;
+    //}
+    public double getPrice() {
+        return price;
     }
     public void setPrice(double price){
         this.price = price;

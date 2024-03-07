@@ -12,7 +12,7 @@ public class FoodProduct extends Product{
 
     @Override
     public double getPrice(){
-        if(super.getPrice()>5){
+        if(super.getPrice()>5) {
             return super.getPrice() * 0.7;
         } else{
             return super.getPrice();

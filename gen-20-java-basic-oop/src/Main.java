@@ -32,6 +32,7 @@ public class Main {
             System.out.println();
         } catch (StackOverflowError e){
             System.err.println(e);
+            e.printStackTrace();
         }
 
     }
