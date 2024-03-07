@@ -36,16 +36,19 @@ public class MapClass {
                 System.out.println();
                 break;
             case 3:
-
+                UpdateDatabase up = new UpdateDatabase();
+                up.updateDatabase();
                 System.out.println();
                 System.out.println();
                 break;
             case 4:
-
+                CheckDatabase ch = new CheckDatabase();
+                ch.checkDatabase();
                 System.out.println();
                 System.out.println();
             case 5:
-
+                DeleteDatabase d = new DeleteDatabase();
+                d.deleteDatabase();
                 System.out.println();
                 System.out.println();
             case 6:

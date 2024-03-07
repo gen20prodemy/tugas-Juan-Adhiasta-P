@@ -6,7 +6,12 @@ import POJO.Siswa;
 public class Main {
     DatabaseInterface<Integer, Siswa> database = new Database();
     public static void main(String[] args) {
-    MapClass map = new MapClass();
-    map.switchCase();
+    try {
+        MapClass map = new MapClass();
+        map.switchCase();
+    } catch (Exception e){
+        System.err.print(e);
+        e.printStackTrace();
+    }
     }
 }
