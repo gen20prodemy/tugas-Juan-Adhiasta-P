@@ -1,11 +1,12 @@
 package Main;
 import Interface.DatabaseInterface;
 import Map.Database;
-import java.util.Scanner;
+import POJO.Siswa;
 
 public class Main {
+    DatabaseInterface<Integer, Siswa> database = new Database();
     public static void main(String[] args) {
-        DatabaseInterface<Integer,String> database = new Database();
-
+    MapClass map = new MapClass();
+    map.switchCase();
     }
 }

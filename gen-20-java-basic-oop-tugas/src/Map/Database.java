@@ -1,30 +1,32 @@
 package Map;
 
 import Interface.DatabaseInterface;
+import POJO.Siswa;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class Database implements DatabaseInterface<Integer,String> {
-    private Map<Integer,String> database; //encapsulation
+public class Database implements DatabaseInterface<Integer, Siswa> {
+    private Map<Integer, Siswa> database; //encapsulation
 
     public Database(){
         this.database = new HashMap<>();
     }
     @Override
-    public void create(Integer no_id, String namaSiswa){
-        database.put(no_id,namaSiswa);
+    public void create(Integer no_id, Siswa value){
+        database.put(no_id,value);
     }
     @Override
-    public String read(Integer no_id){
-        String key = database.get(no_id);
-        System.out.println("No id: "+no_id+" = "+key);
-        return key;
+    public Siswa read(Integer no_id){
+        Siswa value = database.get(no_id);
+        System.out.println("No id: "+no_id+" = "+value.toString());
+        return value;
     }
     @Override
-    public void update(Integer no_id, String namaBaru){
+    public void update(Integer no_id, Siswa newValue){
         if(database.containsKey(no_id)){
-            database.put(no_id, namaBaru);
-            System.out.println("Update id: "+no_id+" = "+namaBaru);
+            database.put(no_id, newValue);
+            System.out.println("Update id: "+no_id+" = "+newValue.toString());
         } else {
             System.out.println("Id tidak ditemukan: "+no_id);
         }
@@ -37,5 +39,15 @@ public class Database implements DatabaseInterface<Integer,String> {
         } else {
             System.out.println("Id tidak ditemukan: "+no_id);
         }
+    }
+    @Override
+    public void display() {
+        System.out.println("Isi Map: ");
+        for(Map.Entry<Integer, Siswa> entry : database.entrySet()){
+            System.out.println(entry.getKey()+" = "+entry.getValue());
+        }
+    }
+    public void clear(){
+        database.clear();
     }
 }

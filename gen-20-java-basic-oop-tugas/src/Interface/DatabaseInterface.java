@@ -5,4 +5,6 @@ public interface DatabaseInterface<Integer, String> {
     String read(Integer no_id);
     void update(Integer no_id, String namaBaru);
     void delete(Integer no_id);
+    abstract void display();
+    void clear();
 }
