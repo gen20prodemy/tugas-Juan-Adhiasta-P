@@ -1,5 +1,6 @@
 package Map;
 
+import CustomError.DuplicateIdException;
 import Interface.DatabaseInterface;
 import POJO.Siswa;
 
@@ -15,6 +16,9 @@ public class Database implements DatabaseInterface<Integer, Siswa> {
     @Override
     public void create(Integer no_id, Siswa value){
         database.put(no_id,value);
+        System.out.println();
+        System.out.println("Map berhasil dibuat");
+        System.out.println();
     }
     @Override
     public Siswa read(Integer no_id){
@@ -22,6 +26,21 @@ public class Database implements DatabaseInterface<Integer, Siswa> {
         System.out.println("No id: "+no_id+" = "+value.toString());
         return value;
     }
+
+    @Override
+    public void add(Integer no_id, Siswa value) {
+        try {
+            if (database.containsKey(no_id)) {
+                throw new DuplicateIdException("Data id "+no_id+" telah tersedia");
+            } else {
+                database.put(no_id, value);
+                System.out.println("Data berhasil ditambahkan");
+            }
+        }catch (Exception e){
+            System.out.println("Error "+e.getMessage());
+        }
+    }
+
     @Override
     public void update(Integer no_id, Siswa newValue){
         if(database.containsKey(no_id)){

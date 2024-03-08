@@ -23,6 +23,6 @@ public class Siswa {
 
     @Override
     public String toString() {
-        return namaSiswa+" : "+usia;
+        return namaSiswa+" dengan usia "+usia;
     }
 }

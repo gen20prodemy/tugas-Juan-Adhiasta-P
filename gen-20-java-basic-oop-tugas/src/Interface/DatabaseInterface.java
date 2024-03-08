@@ -7,4 +7,5 @@ public interface DatabaseInterface<Integer, String> {
     void delete(Integer no_id);
     abstract void display();
     void clear();
+    void add(Integer no_id, String namaSiswa);
 }
