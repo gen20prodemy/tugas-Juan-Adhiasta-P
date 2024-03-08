@@ -94,17 +94,20 @@ public class FileMain {
         CRUD crud = new FileTxt(filePath);
         FileTxt file = new FileTxt(filePath);
         Scanner s = new Scanner(System.in);
-        Scanner s1 = new Scanner((System.in));
+        Scanner s1 = new Scanner(System.in);
+        Scanner s2 = new Scanner(System.in);
         System.out.print("Masukkan jumlah pelanggan yang ingin diupdate: ");
         int jumlah = s.nextInt();
         s.nextLine();
         for(int i = 0;i<jumlah;i++){
-            System.out.print("Masukkan nama pelanggan: ");
+            System.out.print("Masukkan nama pelanggan yang ingin diganti: ");
+            String nameP = s2.nextLine();
+            System.out.print("Masukkan nama pelanggan baru: ");
             String name = s.nextLine();
-            System.out.print("Masukkan usia pelanggan: ");
+            System.out.print("Masukkan usia pelanggan baru: ");
             int usia = s1.nextInt();
             Pelanggan p = new Pelanggan(name,usia);
-            crud.updateRecord(name,p);
+            crud.updateRecord(nameP,p);
         }
         System.out.println();
         switchCase();

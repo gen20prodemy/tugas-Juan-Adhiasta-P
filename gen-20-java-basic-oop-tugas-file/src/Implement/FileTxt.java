@@ -43,8 +43,8 @@ public class FileTxt extends CRUD{
 
     @Override
     public void updateRecord(String name, Pelanggan updatePerson) {
-        List<Pelanggan> records = getAllRecord();
-        List<Pelanggan> updatedRecords = new ArrayList<>();
+        List<Pelanggan> records = getAllRecord(); //Array dari isi txt
+        List<Pelanggan> updatedRecords = new ArrayList<>(); //Array kosong
 
         for (Pelanggan pelanggan : records){
             if(pelanggan.getName().equals(name)){
