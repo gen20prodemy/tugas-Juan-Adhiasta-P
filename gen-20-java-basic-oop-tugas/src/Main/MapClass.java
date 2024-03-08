@@ -5,7 +5,7 @@ import Map.Database;
 import POJO.Siswa;
 
 public class MapClass {
-    DatabaseInterface<Integer, Siswa> database = new Database();
+    static DatabaseInterface<Integer, Siswa> database = new Database();
 
     public MapClass(){
 
@@ -24,36 +24,108 @@ public class MapClass {
 
         switch (p){
             case 1:
-                MakeDatabase mk = new MakeDatabase();
-                mk.makeDatabase();
+                makeDatabase();
                 System.out.println();
                 System.out.println();
                 break;
             case 2:
-                AddDatabase ad = new AddDatabase();
-                ad.addDatabase();
+                addDatabase();
                 System.out.println();
                 System.out.println();
                 break;
             case 3:
-                UpdateDatabase up = new UpdateDatabase();
-                up.updateDatabase();
+                updateDatabase();
                 System.out.println();
                 System.out.println();
                 break;
             case 4:
-                CheckDatabase ch = new CheckDatabase();
-                ch.checkDatabase();
+                checkDatabase();
                 System.out.println();
                 System.out.println();
             case 5:
-                DeleteDatabase d = new DeleteDatabase();
-                d.deleteDatabase();
+                deleteDatabase();
                 System.out.println();
                 System.out.println();
             case 6:
                 System.exit(0);
                 break;
         }
+    }
+    public static void makeDatabase(){
+        database.clear();
+        Scanner scan = new Scanner(System.in);
+        Scanner scan1 = new Scanner(System.in);
+        Scanner scan2 = new Scanner(System.in);
+        System.out.print("Masukkan jumlah data siswa yang ingin dibuat: ");
+        Integer jumlah = scan.nextInt();
+        scan.nextLine();
+        for (Integer i = 0; i< jumlah; i++){
+            System.out.println("Masukkan no id siswa: ");
+            Integer c = scan2.nextInt();
+            System.out.print("Masukkan nama siswa: ");
+            String a = scan.nextLine();
+            System.out.print("Masukkan usia siswa: ");
+            int b = scan1.nextInt();
+            Siswa data = new Siswa(a, b);
+            database.create(c, data);
+        }
+        System.out.println("Isi Map adalah:");
+        database.display();
+        System.out.println();
+        switchCase();
+    }
+    public static void addDatabase(){
+        Scanner scan = new Scanner(System.in);
+        Scanner scan1 = new Scanner(System.in);
+        Scanner scan2 = new Scanner(System.in);
+        System.out.print("Masukkan jumlah data siswa yang ingin dibuat: ");
+        Integer jumlah = scan.nextInt();
+        scan.nextLine();
+        for (Integer i = 0; i< jumlah; i++){
+            System.out.println("Masukkan no id siswa: ");
+            Integer c = scan2.nextInt();
+            System.out.println("Masukkan nama siswa: ");
+            String a = scan.nextLine();
+            System.out.println("Masukkan usia siswa: ");
+            int b = scan1.nextInt();
+            Siswa data = new Siswa(a, b);
+            database.create(c, data);
+        }
+        System.out.println("Isi Map adalah: ");
+        database.display();
+        System.out.println();
+        switchCase();
+    }
+    public static void updateDatabase(){
+        Scanner scan = new Scanner(System.in);
+        Scanner scan1 = new Scanner(System.in);
+        Scanner scan2 = new Scanner(System.in);
+        System.out.print("Masukkan no id siswa: ");
+        Integer a = scan.nextInt();
+        System.out.print("Masukkan nama baru: ");
+        String b = scan1.nextLine();
+        System.out.print("Masukkan usia baru: ");
+        int c = scan2.nextInt();
+        Siswa data = new Siswa(b,c);
+        database.update(a,data);
+        database.display();
+        System.out.println();
+        switchCase();
+    }
+    public static void checkDatabase(){
+        Scanner s = new Scanner(System.in);
+        System.out.print("Masukkan no id siswa untuk dicek: ");
+        Integer x = s.nextInt();
+        database.read(x);
+        System.out.println();
+        switchCase();
+    }
+    public static void deleteDatabase(){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Masukkan no id yang ingin dihapus: ");
+        Integer x = s.nextInt();
+        database.delete(x);
+        System.out.println();
+        switchCase();
     }
 }
