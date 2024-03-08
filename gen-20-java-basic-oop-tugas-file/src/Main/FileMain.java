@@ -11,10 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FileMain {
-    CRUD crud = new FileTxt(jalur);
-    FileTxt file = new FileTxt(jalur);
-    String jalur = "E:\\Pro Sigmaka Mandiri - Pelatihan\\Java Fundamental" +
-            "\\Tugas-Java\\gen-20-java-basic-oop-tugas-file\\src\\";
+    String filePath = "output.txt";
     public FileMain(){
 
     }
@@ -60,12 +57,14 @@ public class FileMain {
                     break;
             }
         } catch(InputMismatchException | NullPointerException e) {
-            System.err.println(e);
+            System.out.println(e);
             System.out.println();
             switchCase();
         }
     }
     public void makeFile(){
+        CRUD crud = new FileTxt(filePath);
+        FileTxt file = new FileTxt(filePath);
         Scanner s = new Scanner(System.in);
         System.out.print("Masukkan nama file: ");
         String a = s.nextLine();
@@ -74,9 +73,11 @@ public class FileMain {
         switchCase();
     }
     public void addRecord(){
+        CRUD crud = new FileTxt(filePath);
+        FileTxt file = new FileTxt(filePath);
         Scanner s = new Scanner(System.in);
         Scanner s1 = new Scanner(System.in);
-        System.out.println("Masukkan jumlah pelanggan yang ingin ditambah: ");
+        System.out.print("Masukkan jumlah pelanggan yang ingin ditambah: ");
         int jumlah = s.nextInt();
         s.nextLine();
         for(int i=0;i<jumlah;i++){
@@ -90,9 +91,11 @@ public class FileMain {
         switchCase();
     }
     public void updateRecord(){
+        CRUD crud = new FileTxt(filePath);
+        FileTxt file = new FileTxt(filePath);
         Scanner s = new Scanner(System.in);
         Scanner s1 = new Scanner((System.in));
-        System.out.print("Masukkan jumlah pelanggan yang ingin ditambah: ");
+        System.out.print("Masukkan jumlah pelanggan yang ingin diupdate: ");
         int jumlah = s.nextInt();
         s.nextLine();
         for(int i = 0;i<jumlah;i++){
@@ -107,6 +110,8 @@ public class FileMain {
         switchCase();
     }
     public void deleteRecord(){
+        CRUD crud = new FileTxt(filePath);
+        FileTxt file = new FileTxt(filePath);
         Scanner s = new Scanner(System.in);
         System.out.print("Masukkan nama yang ingin dihapus: ");
         String name = s.nextLine();
@@ -115,8 +120,13 @@ public class FileMain {
         switchCase();
     }
     public void getRecord(){
+        CRUD crud = new FileTxt(filePath);
+        FileTxt file = new FileTxt(filePath);
         System.out.println("Daftar pelanggan: ");
-        crud.getAllRecord();
+        for(Pelanggan data : crud.getAllRecord()){
+            System.out.println(data);
+        }
+        System.out.println(crud.getAllRecord().toString());
         System.out.println();
         switchCase();
     }

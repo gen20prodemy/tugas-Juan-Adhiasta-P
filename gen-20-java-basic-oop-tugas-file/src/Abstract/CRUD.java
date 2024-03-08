@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public abstract class CRUD {
-    protected String filePath; //Coba dibuat private
+    public String filePath; //Coba dibuat private
     public CRUD(String filePath){
         this.filePath = filePath;
     }

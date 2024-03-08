@@ -23,6 +23,6 @@ public class Pelanggan {
 
     @Override
     public String toString() {
-        return "Nama: "+name+ ", Alamat: "+usia;
+        return "Nama: "+name+ ", Usia: "+usia;
     }
 }
