@@ -6,19 +6,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdditionService {
 
-    private Addition addition;
-
-    public AdditionService(){
-        addition = new Addition();
-    }
-
-    public Addition getAddition(){
-        return addition;
-    }
-
-    public void setAddition(Addition addition){
-        this.addition.setNumberA(addition.getNumberA());
-        this.addition.setNumberB(addition.getNumberB());
-        this.addition.setHasilTambah();
+    public Addition getAddition(Addition addition){
+        Addition add = new Addition(); //karena di dalam getAddition, baru dipanggil ketika getAddition terpanggil
+        add.setNumberA(addition.getNumberA());
+        add.setNumberB(addition.getNumberB());
+        add.setHasilTambah();
+        return add;
     }
 }

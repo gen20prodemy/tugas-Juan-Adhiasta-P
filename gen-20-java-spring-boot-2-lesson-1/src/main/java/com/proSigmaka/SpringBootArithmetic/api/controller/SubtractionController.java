@@ -17,8 +17,7 @@ public class SubtractionController {
 
     @PostMapping("/kurang")
     public Subtraction subtraction(@RequestBody Subtraction subtraction){
-        subtractionService.setSubtraction(subtraction);
-        return subtractionService.getSubtraction();
+        return subtractionService.getSubtraction(subtraction);
     }
 
 }

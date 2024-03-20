@@ -5,17 +5,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SubtractionService {
-    private Subtraction subtraction;
-
-    public SubtractionService(){
-        this.subtraction = new Subtraction();
-    }
-    public Subtraction getSubtraction(){
-        return subtraction;
-    }
-    public void setSubtraction(Subtraction subtraction){
-        this.subtraction.setNumberA(subtraction.getNumberA());
-        this.subtraction.setNumberB(subtraction.getNumberB());
-        this.subtraction.setHasilKurang();
+    public Subtraction getSubtraction(Subtraction subtraction){
+        Subtraction sub = new Subtraction();
+        sub.setNumberA(subtraction.getNumberA());
+        sub.setNumberB(subtraction.getNumberB());
+        sub.setHasilKurang();
+        return sub;
     }
 }

@@ -16,8 +16,7 @@ public class AdditionController {
 
     @PostMapping("/tambah")
     public Addition addition(@RequestBody Addition addition){
-        additionService.setAddition(addition);
-        return additionService.getAddition();
+        return additionService.getAddition(addition);
     }
 
 

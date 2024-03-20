@@ -16,7 +16,6 @@ public class DivisionController {
 
     @PostMapping("/bagi")
     public Division division(@RequestBody Division division){
-        divisionService.setDivision(division);
-        return divisionService.getDivision();
+        return divisionService.getDivision(division);
     }
 }

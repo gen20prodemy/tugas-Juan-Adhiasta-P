@@ -16,7 +16,6 @@ public class MultiplicationController {
 
     @PostMapping("/kali")
     public Multiplication multiplication(@RequestBody Multiplication multiplication){
-        multiplicationService.setMultiplication(multiplication);
-        return multiplicationService.getMultiplication();
+        return multiplicationService.getMultiplication(multiplication);
     }
 }

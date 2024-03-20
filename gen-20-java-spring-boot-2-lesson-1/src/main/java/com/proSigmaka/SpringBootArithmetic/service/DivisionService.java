@@ -5,19 +5,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DivisionService {
-    private Division division;
-
-    public DivisionService(){
-        this.division = new Division();
-    }
-
-    public Division getDivision(){
-        return division;
-    }
-
-    public void setDivision(Division division){
-        this.division.setNumberA(division.getNumberA());
-        this.division.setNumberB(division.getNumberB());
-        this.division.setHasilBagi();
+    public Division getDivision(Division division){
+        Division div = new Division();
+        div.setNumberA(division.getNumberA());
+        div.setNumberB(division.getNumberB());
+        div.setHasilBagi();
+        return div;
     }
 }
