@@ -28,6 +28,7 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @GetMapping("/")
+    @Scheduled(cron = "* */2 * * * *") //cron example evey 2 minute will do getMapping
     public GlobalHttpResponse<List<CategoryEntity>> getAll(){
         return categoryService.getAll();
     }
